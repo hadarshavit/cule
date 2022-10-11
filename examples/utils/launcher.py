@@ -75,6 +75,7 @@ def dispatch(args, worker):
         # main_worker process function
         torch.multiprocessing.spawn(worker, nprocs=ngpus_per_node, args=(ngpus_per_node, args))
     else:
+        warnings.warn('STARTING')
         # Simply call main_worker function
         worker(args.local_rank, ngpus_per_node, args)
 

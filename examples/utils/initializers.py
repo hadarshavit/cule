@@ -81,6 +81,7 @@ def env_initialize(args, device):
     return train_env, test_env, observation
 
 def log_initialize(args, device):
+    import pdb; pdb.set_trace()
     if args.rank == 0:
         if args.output_filename:
             train_csv_file = open(args.output_filename, 'w', newline='')
@@ -123,7 +124,7 @@ def log_initialize(args, device):
         print()
 
     if device.type == 'cuda':
-        print('Rank {}\n{}'.format(args.rank, cuda_device_str(device.index)), flush=True)
+        print('Rank {}\n'.format(args.rank), flush=True)
 
     return train_csv_file, train_csv_writer, eval_csv_file, eval_csv_writer, summary_writer
 

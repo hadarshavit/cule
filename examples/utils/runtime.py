@@ -211,6 +211,7 @@ def get_device_props():
     return props
 
 def cuda_device_str(device=0):
+    return 'CUDA'
     props = cudaDeviceProp()
 
     rtlib = Runtime()
